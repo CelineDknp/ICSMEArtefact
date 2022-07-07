@@ -17,7 +17,7 @@ For example, to get the CFG shown in Fig. 3 of our paper, run `python3 src/main.
 
 ## Run the performance test
 
-If you want to test the performance of our tool, in the same `SemiParsingCFG` directory, you can run our `perf_test_fuzzy.py` file. This will create a csv file containing the average execution time for our parser on either a single file or all files in a directory. The base use is `python3 perf_test_fuzzy.py file_or_directory_path (-dir) output_file.csv`. The `-dir` flag is necessary when you want to compute the performance for the content of a directory and not a single file. Other non-mandatory arguments are:
+If you want to test the performance of our tool, in the same `SemiParsingCFG` directory, you can run our `perf_test_fuzzy.py` file. This will create a csv file containing the average execution time for our parser on either a single file or all files in a directory. The base use is `python3 src/perf_test_fuzzy.py file_or_directory_path (-dir) output_file.csv`. The `-dir` flag is necessary when you want to compute the performance for the content of a directory and not a single file. Other non-mandatory arguments are:
 
 -  `-batch`: this will run the tests in batches, meaning that a single instance of the parser will be created and run all the files one after the other. This is a significant speedup for the performance testing itself, we therefore advise you to use it.
 - `-thread N`: this allows you to specify how many threads you want to run in parallel for the performance testing. By default, a single thread is used. To run with 4 threads for example, write `-thread 4`. This also speed up significantly the time needed to compute the performance tests.
@@ -25,7 +25,7 @@ If you want to test the performance of our tool, in the same `SemiParsingCFG` di
 
 Note that, if you are running on the VM, there is only 2 available CPU threads and 4Go of memory, so we advise to be careful with how many threads you create.
 
-For example, run `python3 perf_test_fuzzy.py TestFiles/pytest -dir output_file.csv -batch` to get the performances for parsing our test suite.
+For example, run `python3 src/perf_test_fuzzy.py TestFiles/pytest -dir output_file.csv -batch` to get the performances for parsing our test suite.
 
 ## Performance tests used in our paper
 

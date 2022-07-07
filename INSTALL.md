@@ -31,7 +31,7 @@ If you installed the VM, start it. On the VM or your machine, navigate to the `S
 
 1. To check that the install worked, run `python3 -m pytest` or `python -m pytest` (depending on which calls Python3)
 2. To generate a CFG and view it, run `python3 src/main.py path_to_file`, e.g. `python3 src/main.py TestFiles/pytest/if_left_branch_test_file.COB`
-3. To run the performance test on our fuzzy parser, launch `python3 perf_test_fuzzy.py TestFiles/pytest -dir output_file.csv -batch`
+3. To run the performance test on our fuzzy parser, launch `python3 src/perf_test_fuzzy.py TestFiles/pytest -dir output_file.csv -batch`
 
 ## Procedure tested
 TODO
