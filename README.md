@@ -1,20 +1,32 @@
 # What does the artifact do ?
 
-This artifact is available in two versions: either a local install or an Ubunto VM. The installation process will allow you to download out fuzzy parsing tool along with the public files that we used to perform our tests (our test files and the NIST files). Not included in this artefact are the Raincode COBOL compiler and the client project we ran our tool on. The project files are confidential, but Raincode's compiler is available for free [on their website](https://www.raincode.com/download/) when requested. 
-In the artefact, we include a tutorial on how to run our tool to create PDFs of generated CFGs using graphviz as well as an explanation on how to test the performance of our tool. Note that the comparison with the Raincode parser is not possible without requesting and installing it, we therefore provide a script to run the performance testing for the fuzzy parsing only. Csv files containing the results of the performance testing described in our paper are available as well in the [] directory.
+This artifact is available in two versions: either a local install or an Ubuntu VM. The installation process will allow you to download out fuzzy parsing tool along with the public files that we used to perform our tests (our test files and the NIST files). Not included in this artefact are the Raincode COBOL compiler and the client project we ran our tool on. The project files are confidential, but Raincode's compiler is available for free [on their website](https://www.raincode.com/download/) when requested. 
+In the artefact, we include a tutorial on how to run our tool to create PDFs of generated CFGs using graphviz as well as an explanation on how to test the performance of our tool. Note that the comparison with the Raincode parser is not possible without requesting and installing it, we therefore provide a script to run the performance testing for the fuzzy parsing only. Csv files containing the results of the performance testing described in our paper are available as well in the result directory.
 
 # How do I install this artefact ?
 
-If you want to go that route, the VM is available on Zenodo in open access, at [this link](). Simply download the file, unzip it, and load it into VirtualBox. If you want to perform a local install or more detail on the installation process, see our [INSTALL.md]() file.
+If you want to go that route, the VM is available on Zenodo in open access, at [this link](). Simply download the file, unzip it, and load it into VirtualBox. If you want to perform a local install or more detail on the installation process, see our [INSTALL.md](https://github.com/CelineDknp/ICSMEArtefact/blob/main/INSTALL.md) file.
 
 # How to reproduce the results found in the paper ?
 
 ## Get the CFGs
 
-If you want to generate the CFG for any given file simply go in the `SemiParsingCFG` directory (on the Desktop of your VM, or where you installed it locally) and run `python src/main.py "path_to_file"` or `python3 src/main.py "path_to_file"`. 
+If you want to generate the CFG for any given file simply go in the `SemiParsingCFG` directory (on the Desktop of your VM, or where you installed it locally) and run `python src/main.py path_to_file` or `python3 src/main.py path_to_file`. This will create two files: *filename.pdf*, that contains the visualisation of the CFG, as well as *filaname.gv*, that contains the description of the graph in the `DOT` format.
 
-For example, to get the CFG shown in Fig. 3 of our paper, run `python3 src/main.py "TestFiles/pytest/if_left_branch_test_file.COB"` and to get the CFG for the first NIST file, run `python3 main.py "COBOL_85/IC101A.cob"`.
+For example, to get the CFG shown in Fig. 3 of our paper, run `python3 src/main.py TestFiles/pytest/if_left_branch_test_file.COB` and to get the CFG for the first NIST file, run `python3 main.py TestFiles/NIST/IC101A.cob`.
 
 ## Run the performance test
 
-If you want to test the performance of our tool, in the same `SemiParsingCFG` directory, you can run `python3 perf_test_fuzzy.py -d Cobol_85 output_file.csv`. This will create a csv file containing the average execution (over 10 executions) time for our parser on all files in the *Cobol_85* directory. This can also be run for a single file (without the -d parameter). 
+If you want to test the performance of our tool, in the same `SemiParsingCFG` directory, you can run our `perf_test_fuzzy.py` file. This will create a csv file containing the average execution time for our parser on either a single file or all files in a directory. The base use is `python3 perf_test_fuzzy.py file_or_directory_path (-dir) output_file.csv`. The `-dir` flag is necessary when you want to compute the performance for the content of a directory and not a single file. Other non-mandatory arguments are:
+
+-  `-batch`: this will run the tests in batches, meaning that a single instance of the parser will be created and run all the files one after the other. This is a significant speedup for the performance testing itself, we therefore advise you to use it.
+- `-thread N`: this allows you to specify how many threads you want to run in parallel for the performance testing. By default, a single thread is used. To run with 4 threads for example, write `-thread 4`. This also speed up significantly the time needed to compute the performance tests.
+- `-runs M`: this allows you to modify the number of runs (repetitions of the parsing) for each file. The default number is 20, as used in our paper. To reduce this to 10 for example, write `-runs 10`.
+
+Note that, if you are running on the VM, there is only 2 available CPU threads and 4Go of memory, so we advise to be careful with how many threads you create.
+
+For example, run `python3 perf_test_fuzzy.py TestFiles/pytest -dir output_file.csv -batch` to get the performances for parsing our test suite.
+
+## Performance tests used in our paper
+
+Since we can't ship the Raincode parser in the VM to allow a full reproduction of the tests described in our paper, we include in the `result` directory the .csv files generated by our `perf_test.py` script (same functionnalities as `perf_test_fuzzy.py` with the addition of running the Raincode parser and comparing the times). You will find four files describing the performances for: the test files, the NIST files and the migration project (separated in V1 and V2). The average execution time for each file for each parser is present, with at the end the sum over all files, as described in our paper on Table 1. Note that these were run with our scripts pre-compiled bu nuitka, and with the `-batch` flag.

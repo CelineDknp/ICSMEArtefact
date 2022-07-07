@@ -3,14 +3,14 @@
 Our tool is simply composed of Python scripts, so you can chose to either install it locally by pulling from our GitHub, or to grab the provided Ubuntu VM if you don't wish to install directly on your machine.
 
 ## Version A: Local install
-Requirement for the local install: Python 3 and pip must be installed. The install procedure is as follows:
+Requirement for the local install: a git client, Python3 and pip must be installed. The install procedure is as follows:
 
 1. Pull the code from our GitHub repository with `git clone https://github.com/CelineDknp/SemiParsingCFG.git`
 2. Navigate to the directory where you cloned the repo, then go into the `src` directory.
 3. Run `pip install -r requirements.txt` (This should install pytest, graphviz and antlr4)
 4. If you wish to generate the PDFs for the CFGs: install graphviz on your system. Follow the instructions corresponding to your OS that are available [here](https://graphviz.org/download/)
 
-That's it, the project is installed ! To make sure that everything went smoothly, go back to the base directory (`cd ..`) and run the tests with `python3 -m pytest` or `python -m pytest`, depending on which alias calls Python 3 on your machine. All tests should be green.
+That's it, the project is installed ! To make sure that everything went smoothly, go back to the base directory (`cd ..`) and run the tests with `python3 -m pytest` or `python -m pytest`, depending on which alias calls Python3 on your machine. All tests should be green.
 
 
 ## Version B: VM install
@@ -30,7 +30,7 @@ That's it, the project is installed ! To make sure that everything went smoothly
 If you installed the VM, start it. On the VM or your machine, navigate to the `SemiParsingCFG` (on the Desktop for the VM) and open a terminal.
 
 1. To check that the install worked, run `python3 -m pytest` or `python -m pytest` (depending on which calls Python3)
-2. To generate a CFG and view it, run `python src/main.py path_to_file`, e.g. `python3 src/main.py TestFiles/pytest/if_left_branch_test_file.COB`
+2. To generate a CFG and view it, run `python3 src/main.py path_to_file`, e.g. `python3 src/main.py TestFiles/pytest/if_left_branch_test_file.COB`
 3. To run the performance test on our fuzzy parser, launch 
 
 ## Procedure tested
