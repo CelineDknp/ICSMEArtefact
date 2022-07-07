@@ -16,7 +16,7 @@ That's it, the project is installed ! To make sure that everything went smoothly
 ## Version B: VM install
 
 1. If you don't have it already or have an older version, download [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
-2. Download our VM files [here]()
+2. Download our VM files [here](https://zenodo.org/deposit/6806075)
 3. Unzip the files (somewhere easy to find)
 4. Import the VM into your VirtualBox: Machine -> Add -> Navigate to our downloaded file -> Select the "SemiParsingICSMEArtifact.vbox" -> Open
 5. Select the VM and click "Start"
