@@ -18,7 +18,7 @@ That's it, the project is installed ! To make sure that everything went smoothly
 1. If you don't have it already or have an older version, download [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
 2. Download our VM files [here](https://zenodo.org/deposit/6806075)
 3. Unzip the files (somewhere easy to find)
-4. Import the VM into your VirtualBox: Machine -> Add -> Navigate to our downloaded file -> Select the "SemiParsingICSMEArtifact.vbox" -> Open
+4. Import the VM into your VirtualBox: Machine -> Add -> Navigate to our downloaded file -> Select the "FuzzyParsingICSMEArtifact.vbox" -> Open
 5. Select the VM and click "Start"
 6. Ubuntu is set up to automatically log in, so you should be set. If you ever need it, the admin password is simply "admin".
 >Note: our VM is configured to run using minimal ressources, just 4GB of RAM and 2 CPU cores. It is sufficient to run our tool, but feel free to change those settings in the "System" tab of the VM if you have a more powerful computer.
