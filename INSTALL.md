@@ -25,6 +25,8 @@ That's it, the project is installed ! To make sure that everything went smoothly
 
 >If you are using MacOS, and a fresh install of VirtualBox, you might run on some issue when launching the VM. A restart is often required, see [this page](https://www.howtogeek.com/658047/how-to-fix-virtualboxs-%E2%80%9Ckernel-driver-not-installed-rc-1908-error/) for more details.
 
+>If you are using Windows 10, you might have to turn Hyper-V off as explained in [this tutorial](https://forums.virtualbox.org/viewtopic.php?f=25&t=99390). This would be the case if the VM shows only a black screen after starting it, and if there is a turtle in the icons on the lower-right side of the window. 
+
 ## Basic usage of our tool
 
 If you installed the VM, start it. On the VM or your machine, navigate to the `SemiParsingCFG` (on the Desktop for the VM) and open a terminal.
