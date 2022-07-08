@@ -34,4 +34,4 @@ If you installed the VM, start it. On the VM or your machine, navigate to the `S
 3. To run the performance test on our fuzzy parser, launch `python3 src/perf_test_fuzzy.py TestFiles/pytest -dir output_file.csv -batch`
 
 ## Procedure tested
-TODO
+- On two Windows machines
