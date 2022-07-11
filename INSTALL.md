@@ -6,8 +6,8 @@ Our tool is simply composed of Python scripts, so you can chose to either instal
 Requirement for the local install: a git client, Python3 and pip must be installed. The install procedure is as follows:
 
 1. Pull the code from our GitHub repository with `git clone https://github.com/CelineDknp/SemiParsingCFG.git`
-2. Navigate to the directory where you cloned the repo, then go into the `src` directory.
-3. Run `pip install -r requirements.txt` (This should install pytest, graphviz and antlr4)
+2. Navigate to the directory where you cloned the repo, and run `git fetch` to make sure that you have all the branches, then either `git switch ICSME-Artefact` or `git checkout origin/ICSME-Artefact`.
+3. Go into the `src` directory and run `pip install -r requirements.txt` (This should install pytest, graphviz and antlr4)
 4. If you wish to generate the PDFs for the CFGs: install graphviz on your system. Follow the instructions corresponding to your OS that are available [here](https://graphviz.org/download/)
 
 That's it, the project is installed ! To make sure that everything went smoothly, go back to the base directory (`cd ..`) and run the tests with `python3 -m pytest` or `python -m pytest`, depending on which alias calls Python3 on your machine. All tests should be green.
