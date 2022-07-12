@@ -1,3 +1,8 @@
+This repository contains all instructions on how to use the artefact going along with the paper "Generating Customised Control Flow Graphs for Legacy Languages with Semi-Parsing", that will be presented and published at ICSME2022. A copy of the camera-ready paper is provided. Abstract: *We propose a tool and underlying technique that uses semi-parsing to extract control flow graphs from legacy source code (i.e., COBOL).
+Obtaining such control flow graphs is relevant in the industrial setting of legacy modernisation, to quickly demonstrate to code owners that modernisation engineers did not break their business logic.
+They need to be convinced that a migration did not affect the flow around critical parts of their code such as database accesses. Focusing on the control flow around embedded SQL queries and confirming that the code logic has been preserved improves customers' trust and satisfaction in the modernisation.
+Our proposed algorithm and approach uses fuzzy parsing as opposed to full parsing to parse mainly the control flow constructs, while delegating the full parsing of embedded languages like SQL to an external parser, and produces a control flow graph directly while skipping over most of the input in linear time. Such a fuzzy parser is easier to construct and adapt to particular languages and needs than a full parser with a visitor to elicit control flow. Comparisons are made of the fuzzy parser to an industrial-strength full parser.*
+
 # What does the artifact do ?
 
 This artifact is available in two versions: either a local install or an Ubuntu VM. The installation process will allow you to download our fuzzy parsing tool along with the public files that we used to perform our tests (our test files and the NIST files). Not included in this artefact are the Raincode COBOL compiler and the client project we ran our tool on. The project files are confidential, but the Raincode compiler is available for free [on their website](https://www.raincode.com/download/) when requested if you wish to try that as well. 
@@ -6,7 +11,7 @@ In the artefact, we include a tutorial on how to run our tool, which creates PDF
 
 # How do I install this artefact ?
 
-All the details on the installation process are in our [INSTALL.md](https://github.com/CelineDknp/ICSMEArtefact/blob/main/INSTALL.md) file. In summary, if you want to use our provided VM, it is available on Zenodo, at [this link](https://zenodo.org/deposit/6806075). Simply download the file, unzip it, and load it into VirtualBox. If you want to perform a local install, you can pull from [our GitHub](https://github.com/CelineDknp/SemiParsingCFG) and install all the requirements.
+All the details on the installation process are in our [INSTALL.md](https://github.com/CelineDknp/ICSMEArtefact/blob/main/INSTALL.md) file. In summary, if you want to use our provided VM, it is available on Zenodo, at [this link](https://zenodo.org/deposit/6806075). Simply download the file, unzip it, and load it into VirtualBox. If you want to perform a local install, you can pull from the ICSME-Artefact branch on [our GitHub](https://github.com/CelineDknp/SemiParsingCFG) and install all the requirements.
 
 # How to reproduce the results found in the paper ?
 
