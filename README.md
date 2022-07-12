@@ -1,18 +1,18 @@
 # What does the artifact do ?
 
-This artifact is available in two versions: either a local install or an Ubuntu VM. The installation process will allow you to download out fuzzy parsing tool along with the public files that we used to perform our tests (our test files and the NIST files). Not included in this artefact are the Raincode COBOL compiler and the client project we ran our tool on. The project files are confidential, but Raincode's compiler is available for free [on their website](https://www.raincode.com/download/) when requested if you wish to try that as well. 
+This artifact is available in two versions: either a local install or an Ubuntu VM. The installation process will allow you to download our fuzzy parsing tool along with the public files that we used to perform our tests (our test files and the NIST files). Not included in this artefact are the Raincode COBOL compiler and the client project we ran our tool on. The project files are confidential, but the Raincode compiler is available for free [on their website](https://www.raincode.com/download/) when requested if you wish to try that as well. 
 
-In the artefact, we include a tutorial on how to run our tool to create PDFs of generated CFGs using graphviz as well as an explanation on how to test the performance of our tool. Note that the comparison with the Raincode parser is not possible without requesting and installing it, we therefore provide a script to run the performance testing for the fuzzy parsing only. Csv files containing the results of the performance testing described in our paper are available as well in the result directory.
+In the artefact, we include a tutorial on how to run our tool, which creates PDFs of generated CFGs using graphviz, as well as an explanation on how to test the performance of our tool. Note that the comparison with the Raincode parser is not possible without requesting and installing it, we therefore provide a script to run the performance testing for our tool only. Csv files containing the results of the performance testing described in our paper are available in the result directory.
 
 # How do I install this artefact ?
 
-All the details on the installation process are in our [INSTALL.md](https://github.com/CelineDknp/ICSMEArtefact/blob/main/INSTALL.md) file. In summary, if you want to use our provided VM, it is available on Zenodo in open access, at [this link](https://zenodo.org/deposit/6806075). Simply download the file, unzip it, and load it into VirtualBox. If you want to perform a local install, you can pull from [our GitHub](https://github.com/CelineDknp/SemiParsingCFG) and install all the requirements.
+All the details on the installation process are in our [INSTALL.md](https://github.com/CelineDknp/ICSMEArtefact/blob/main/INSTALL.md) file. In summary, if you want to use our provided VM, it is available on Zenodo, at [this link](https://zenodo.org/deposit/6806075). Simply download the file, unzip it, and load it into VirtualBox. If you want to perform a local install, you can pull from [our GitHub](https://github.com/CelineDknp/SemiParsingCFG) and install all the requirements.
 
 # How to reproduce the results found in the paper ?
 
 ## Get the CFGs
 
-If you want to generate the CFG for any given file simply go in the `SemiParsingCFG` directory (on the Desktop of your VM, or where you installed it locally) and run `python src/main.py path_to_file` or `python3 src/main.py path_to_file` depending on the alias for Python3 on your machine. This will create two files: *filename.pdf*, that contains the visualisation of the CFG, as well as *filaname.gv*, that contains the description of the graph in the `DOT` format.
+If you want to generate the CFG for any given file simply go to the `SemiParsingCFG` directory (on the Desktop of your VM, or where you installed it locally) and run `python src/main.py path_to_file` or `python3 src/main.py path_to_file` depending on the alias for Python3 on your machine. This will create two files: *filename.pdf*, that contains the visualisation of the CFG, as well as *filaname.gv*, that contains the description of the graph in the `DOT` format.
 
 For example, to get the CFG shown in Fig. 3 of our paper, run `python3 src/main.py TestFiles/pytest/if_left_branch_test_file.COB` and to get the CFG for the first NIST file, run `python3 main.py TestFiles/NIST/IC101A.cob`.
 
@@ -24,9 +24,9 @@ If you want to test the performance of our tool, in the same `SemiParsingCFG` di
 - `-thread N`: this allows you to specify how many threads you want to run in parallel for the performance testing. By default, a single thread is used. To run with 4 threads for example, write `-thread 4`. This also speeds up significantly the time needed to compute the performance tests.
 - `-runs M`: this allows you to modify the number of runs (repetitions of the parsing) for each file. The default number is 20, as used in our paper. To reduce this to 10 for example, write `-runs 10`.
 
->Note that, if you are running on the VM, there is only 2 available CPU threads and 4Go of memory, so we advise to be careful with how many threads you create. If your computer is powerful enough, you can change the settings in VirtualBox.
+>Note that, if you are running on the VM, there are only 2 available CPU threads and 4Go of memory, so we advise to be careful with how many threads you create. If your computer is powerful enough, you can change the settings in VirtualBox.
 
-For example, run `python3 src/perf_test_fuzzy.py TestFiles/pytest -dir output_file.csv -batch` to get the performances for parsing our test suite.
+For example, run `python3 src/perf_test_fuzzy.py TestFiles/pytest -dir output_file.csv -batch` to get the performance for parsing our test suite.
 
 ## Performance tests used in our paper
 
